@@ -104,7 +104,7 @@
                 total+= parseInt(item.price*83)
                 
                 tdTitle.innerHTML = item.title;
-                tdPrice.innerHTML = `₹${item.price*83}`
+                tdPrice.innerHTML = "₹"+ parseInt(item.price*83)
                 
                 
                 tdPreview.innerHTML = `<div class="d-flex">
@@ -186,7 +186,7 @@
                                 
                             </table>
                         </div>
-                        <div class="card-footer text-dark d-flex" style="justify-content: space-evenly;" >
+                        <div class="card-footer text-dark d-flex ms-3 me-4 " style="justify-content: space-between;" >
                             <h3>Total Price</h3>
                             <h3 id="total"></h3>
                         </div>

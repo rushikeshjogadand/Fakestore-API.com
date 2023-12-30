@@ -22,21 +22,8 @@
             width: 230px;
         }
 
-        /* #toggle1{
-            cursor: pointer;
-        }
-        #toggle1{
-            font-size: 25px;
-        } */
-
         @media only screen and (max-width: 600px) {
 
-            /* nav{
-                display: none;
-            }
-            #toggle1{
-                display: block;
-            } */
             #m3 {
                 width: 280px;
                 margin: auto;
@@ -151,7 +138,7 @@
 
                 tdPreview.innerHTML = `<div class="d-flex">
                                           <img src=${item.image} class="ms-3" width="50" height="50">
-                                          <span onclick="Remove(${item.id})" class="bi bi-trash3-fill ms-3 text-danger"></span>
+                                          <span onclick="Remove(${item.title,item.image,item.price})" class="bi bi-trash3-fill ms-3 text-danger"></span>
                                      </div>`;
 
 
@@ -166,12 +153,24 @@
             })
         }
 
-        // function Remove(id){
-        //    list.splice(id,1)
-        //    alert(id)
-        //    ShowCartClick()
+        function Remove(title,image,price){
+          var app =title,image,price;
+          var index = list.indexOf(app)
+          flag= confirm(`Are you sure you want to delet `)
+          if(flag==true){
+            list.splice(index,1)
+           ShowCartClick()
+           itemcount();
+          }
+        //   var cardbody =document.getElementById("cartBody").value;
+        //   var tota = document.getElementById("total").value;
+        //   if(cardbody.length===0){
+        //     tota.innerHTML="";
+        //   }
+          
 
-        // }
+        }
+       
         function bodyload() {
             Loadcategory();
             LoadProducts("https://fakestoreapi.com/products");
@@ -215,8 +214,8 @@
                         class="btn position-relative btn-warning bi bi-cart2"> Your Cart <span id="lblCount"
                             class="badge rounded rounded-circle bg-danger text-white position-absolute"></span>
                     </button>
-                    <div class="modal fade" id="cart">
-                        <div class="modal-dialog">
+                    <div class="modal fade  " id="cart">
+                        <div class="modal-dialog" id="modal">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h2 class="text-warning">Your Cart</h2>
